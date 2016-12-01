@@ -1,59 +1,76 @@
-"---------------------------
-" Start Standard Settings.
-"---------------------------
-" シンタックスON!
-syntax on 
+"---------------------------------------------------------------------------
+" 標準設定
+"---------------------------------------------------------------------------
 
-"行番号を表示する
+" 文字コード設定
+"set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+set encoding=utf-8
+" *.md ファイルは modula2 ファイルと判断してしまうので、 markdown に設定
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} :set filetype=markdown
+" 2バイト半角対策 ■ 等で表示崩れ対策
+set ambiwidth=double
 set number
-"新しい行のインデントを、現在の行と合わせる
+set tabstop=4
 set autoindent
-"新しい行を作ったときに高度な自動インデントを行う
-set smartindent
-"タブの代わりに空白文字を挿入する
 set expandtab
-"シフト移動幅
+set smartindent
 set shiftwidth=4
-"閉じ括弧が入力されたとき、対応する括弧を表示する
-set showmatch
-"検索時に大文字を含んでいたら大/小を区別
-set smartcase
-"行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
-set smarttab
-"ファイル内の <Tab> が対応する空白の数
-"set tabstop=4
-"検索をファイルの先頭へループしない
-set nowrapscan
-"カーソル行に下線を入れる
-set cursorline
+syntax on
+" 検索結果のハイライト
+set hlsearch
+" vimからファイルを開くときにリスト表示
+set wildmenu wildmode=list:full
+" タブの可視化
+set list
+set listchars=tab:>.
+" Insert時に、バックスペースを使用する
+set backspace=indent,eol,start
+" CTRL-a, CTRL-x 使用時の認識設定
+set nrformats=alpha,hex
 
-set background=dark
-"---------------------------
-" End Standard Settings.
-"---------------------------
+source ~/.vim/abbreviate.vim
 
-"---------------------------
-" Start Neobundle Settings.
-"---------------------------
-" bundleで管理するディレクトリを指定
+"---------------------------------------------------------------------------
+" NeoBundle 設定
+"---------------------------------------------------------------------------
+
+" Required: bundleで管理するディレクトリを指定
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-" neobundle自体をneobundleで管理
+" NeoBundle に NeoBundle 自身の管理をさせる
+" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" plugins
+" My Bundles here:
 NeoBundle 'scrooloose/syntastic'
+NeoBundleFetch 'kurocode25/mdforvim'
 NeoBundle 'PDV--phpDocumentor-for-Vim'
+" 'PDV--phpDocumentor-for-Vim' {{{
+inoremap <C-P> <Esc>:call PhpDocSingle()<CR>i
+nnoremap <C-P> :call PhpDocSingle()<CR>
+vnoremap <C-P> :call PhpDocSingle()<CR>
+" }}} 
 
+" Markdown用
+"NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'rcmdnk/vim-markdown'
+" rcmdnk/vim-markdown {{{
+let g:vim_markdown_folding_diabled = 1
+"}}}
+
+" Required:
 call neobundle#end()
 
 " Required:
 filetype plugin indent on
 
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
 NeoBundleCheck
-"-------------------------
-" End Neobundle Settings.
-"-------------------------
+
+" vim: foldmethod=marker
