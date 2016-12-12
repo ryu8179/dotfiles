@@ -71,8 +71,8 @@ call neobundle#end()
 " Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
+" vim起動時に未インストールの bundle が無いかチェックし、
+" 有る場合はインストールを促す。
 NeoBundleCheck
 
 " vim: foldmethod=marker
