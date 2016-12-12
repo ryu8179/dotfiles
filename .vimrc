@@ -28,7 +28,9 @@ set backspace=indent,eol,start
 " CTRL-a, CTRL-x 使用時の認識設定
 set nrformats=alpha,hex
 
+" 各機能の設定ファイル読み込み
 source ~/.vim/abbreviate.vim
+source ~/.vim/mappings.vim
 
 "---------------------------------------------------------------------------
 " NeoBundle 設定
