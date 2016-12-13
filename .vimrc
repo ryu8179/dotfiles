@@ -9,6 +9,7 @@ set encoding=utf-8
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} :set filetype=markdown
 " 2バイト半角対策 ■ 等で表示崩れ対策
 set ambiwidth=double
+set helplang=ja,en
 set number
 set tabstop=4
 set autoindent
@@ -16,6 +17,8 @@ set expandtab
 set smartindent
 set shiftwidth=4
 syntax on
+" 検索結果をリアルタイムハイライト
+set incsearch
 " 検索結果のハイライト
 set hlsearch
 " vimからファイルを開くときにリスト表示
@@ -46,9 +49,14 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" My Bundles here:
+" 私の設定はここから:
+
+NeoBundle 'vim-jp/vimdoc-ja'
+
 NeoBundle 'scrooloose/syntastic'
+
 NeoBundleFetch 'kurocode25/mdforvim'
+
 NeoBundle 'PDV--phpDocumentor-for-Vim'
 " 'PDV--phpDocumentor-for-Vim' {{{
 inoremap <C-P> <Esc>:call PhpDocSingle()<CR>i
