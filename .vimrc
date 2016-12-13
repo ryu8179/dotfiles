@@ -58,11 +58,8 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundleFetch 'kurocode25/mdforvim'
 
 NeoBundle 'PDV--phpDocumentor-for-Vim'
-" 'PDV--phpDocumentor-for-Vim' {{{
-inoremap <C-P> <Esc>:call PhpDocSingle()<CR>i
-nnoremap <C-P> :call PhpDocSingle()<CR>
-vnoremap <C-P> :call PhpDocSingle()<CR>
-" }}} 
+
+NeoBundle 'rbgrouleff/bclose.vim'
 
 " Markdown用
 "NeoBundle 'plasticboy/vim-markdown'
