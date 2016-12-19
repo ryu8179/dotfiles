@@ -50,6 +50,17 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " 私の設定はここから:
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+"NeoBundle 'Shougo/unite.vim' {{{
+" プレフィックスキー
+nnoremap [unite] <Nop>
+nmap    <Space>u [unite]
+" キーマップ
+nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
+nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
+"}}}
 
 NeoBundle 'vim-jp/vimdoc-ja'
 
