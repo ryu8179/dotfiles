@@ -70,6 +70,12 @@ NeoBundleFetch 'kurocode25/mdforvim'
 
 NeoBundle 'PDV--phpDocumentor-for-Vim'
 
+NeoBundle 'fatih/vim-go'
+"NeoBundle 'fatih/vim-go' {{{
+autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+autocmd FileType go :match goErr /\<err\>/
+" }}}
+
 NeoBundle 'rbgrouleff/bclose.vim'
 
 " Markdown用
