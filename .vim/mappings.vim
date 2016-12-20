@@ -8,7 +8,7 @@
 
 " 画面スクロール１行
 nnoremap <C-j> <C-e>
-nnoremap <C-j> <C-y>
+nnoremap <C-k> <C-y>
 
 " 行頭、行末移動
 nnoremap <Space>h ^
