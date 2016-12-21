@@ -62,6 +62,23 @@ nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
 "}}}
 
+NeoBundle 'kana/vim-submode'
+"NeoBundle 'kana/vim-submode' {{{
+" 読み込み完了後に call する
+let s:bundle = neobundle#get("vim-submode")
+function! s:bundle.hooks.on_source(bundle)
+  " s>>>, s<<<, s+++, s---, の様にして画面サイズ変更を可能に
+  call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+  call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+  call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+  call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+  call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+  call submode#map('bufmove', 'n', '', '<', '<C-w><')
+  call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+  call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+endfunction
+"}}}
+
 NeoBundle 'vim-jp/vimdoc-ja'
 
 NeoBundle 'scrooloose/syntastic'
