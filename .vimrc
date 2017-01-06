@@ -9,6 +9,7 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} :set filetype=markdown
 set ambiwidth=double
 set helplang=ja,en
 set number
+set mouse-=a
 " 検索結果をリアルタイムハイライト
 set incsearch
 " 検索結果のハイライト
@@ -34,6 +35,13 @@ set listchars=tab:>.
 " 各機能の設定ファイル読み込み
 source ~/.vim/abbreviate.vim
 source ~/.vim/mappings.vim
+
+"---------------------------------------------------------------------------
+" Neovim 設定
+"---------------------------------------------------------------------------
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
 
 "---------------------------------------------------------------------------
 " NeoBundle 設定
