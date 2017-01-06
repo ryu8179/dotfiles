@@ -30,6 +30,8 @@ alias ll='ls -lh'
 alias la='ls -alh'
 alias view='vim -R'
 alias cp='cp -i'
+alias du='du -h'
+alias df='df -h'
 
 # plugin
 [[ -f $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
