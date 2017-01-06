@@ -2,8 +2,6 @@
 " 標準設定
 "---------------------------------------------------------------------------
 
-" 文字コード設定
-"set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
 set encoding=utf-8
 " *.md ファイルは modula2 ファイルと判断してしまうので、 markdown に設定
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} :set filetype=markdown
@@ -11,25 +9,27 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} :set filetype=markdown
 set ambiwidth=double
 set helplang=ja,en
 set number
-set tabstop=4
-set autoindent
-set expandtab
-set smartindent
-set shiftwidth=4
-syntax on
 " 検索結果をリアルタイムハイライト
 set incsearch
 " 検索結果のハイライト
 set hlsearch
 " vimからファイルを開くときにリスト表示
 set wildmenu wildmode=list:full
-" タブの可視化
-set list
-set listchars=tab:>.
 " Insert時に、バックスペースを使用する
 set backspace=indent,eol,start
 " CTRL-a, CTRL-x 使用時の認識設定
-set nrformats=alpha,hex
+set nrformats=alpha,hex 
+
+" コーディング設定
+set tabstop=4
+set autoindent
+set expandtab
+set smartindent
+set shiftwidth=4
+syntax on
+" タブの可視化
+set list
+set listchars=tab:>.
 
 " 各機能の設定ファイル読み込み
 source ~/.vim/abbreviate.vim
