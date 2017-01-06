@@ -3,13 +3,14 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# private setting
 PROMPT="[%n@%m](%*%) %~ %# "
 #RPROMPT="(%*%)"
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
+# Ctrl+w で一つ前のスラッシュ(/)まで削除する
+export WORDCHARS='*?_.[]~-=&;!#$%^(){}<>' 
 # 補完時にメニュー選択モードを利用する
 zstyle ':completion:*:default' menu select=2
 # 大文字小文字を区別しない
