@@ -2,9 +2,14 @@
 " 標準設定
 "---------------------------------------------------------------------------
 
+" 参考: https://github.com/vim-jp/reading-vimrc/wiki
+augroup MyAutoGrp
+  autocmd!
+augroup END
+
 set encoding=utf-8
 " *.md ファイルは modula2 ファイルと判断してしまうので、 markdown に設定
-autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} :set filetype=markdown
+autocmd MyAutoGrp BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} :set filetype=markdown
 " 2バイト半角対策 ■ 等で表示崩れ対策
 set ambiwidth=double
 set helplang=ja,en
@@ -97,8 +102,8 @@ NeoBundle 'PDV--phpDocumentor-for-Vim'
 
 NeoBundle 'fatih/vim-go'
 "NeoBundle 'fatih/vim-go' {{{
-autocmd FileType go :highlight goErr cterm=bold ctermfg=214
-autocmd FileType go :match goErr /\<err\>/
+autocmd MyAutoGrp FileType go :highlight goErr cterm=bold ctermfg=214
+autocmd MyAutoGrp FileType go :match goErr /\<err\>/
 " }}}
 
 NeoBundle 'rbgrouleff/bclose.vim'
