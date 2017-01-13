@@ -3,6 +3,24 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+#---------------------------------------------------------------------------
+# zplug
+#---------------------------------------------------------------------------
+source ~/.zplug/init.zsh
+zplug "zplug/zplug"
+zplug "mollifier/anyframe"
+zplug load --verbose
+
+# "mollifier/anyframe" 設定
+bindkey '^xr' anyframe-widget-execute-history
+bindkey '^x^r' anyframe-widget-execute-history
+
+bindkey '^xp' anyframe-widget-put-history
+bindkey '^x^p' anyframe-widget-put-history
+
+#---------------------------------------------------------------------------
+# 標準設定
+#---------------------------------------------------------------------------
 PROMPT="[%n@%m](%*%) %~ %# "
 #RPROMPT="(%*%)"
 HISTFILE=~/.zsh_history
@@ -22,9 +40,6 @@ setopt PUSHD_IGNORE_DUPS
 setopt IGNORE_EOF
 setopt NO_FLOW_CONTROL
 setopt NO_BEEP
-
-bindkey '^r' history_incremental-pattern-search-backward
-bindkey '^s' history_incremental-pattern-search-forward
 
 alias ll='ls -lh'
 alias la='ls -alh'
