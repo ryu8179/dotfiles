@@ -43,6 +43,7 @@ setopt NO_BEEP
 
 alias ll='ls -lh'
 alias la='ls -alh'
+alias vi='vim'
 alias view='vim -R'
 alias cp='cp -i'
 alias du='du -h'
