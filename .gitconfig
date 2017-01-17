@@ -1,0 +1,16 @@
+[include]
+    path = .gitconfig.local
+[core]
+    editor = vim
+    autocrlf = false
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+[alias]
+    br = branch
+    conf = config
+    diffs = diff --staged
+    lola = log --graph --pretty=format:'%Cred%h%Creset - %s%C(yellow)%d%Creset %Cgreen(%cr:%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    st = status
