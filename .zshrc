@@ -7,16 +7,26 @@ compinit
 # zplug
 #---------------------------------------------------------------------------
 source ~/.zplug/init.zsh
+
 zplug "zplug/zplug"
 zplug "mollifier/anyframe"
+# "mollifier/anyframe" (peco) 設定 {{{
+# コマンドライン履歴から選んで実行する
+alias ph='anyframe-widget-execute-history'
+# コマンドライン履歴から選んでコマンドラインに挿入する
+alias phh='anyframe-widget-put-history'
+# }}}
+
+# 未インストール項目をインストールする
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# コマンドをリンクして、PATH に追加し、プラグインは読み込む
 zplug load --verbose
-
-# "mollifier/anyframe" 設定
-bindkey '^xr' anyframe-widget-execute-history
-bindkey '^x^r' anyframe-widget-execute-history
-
-bindkey '^xp' anyframe-widget-put-history
-bindkey '^x^p' anyframe-widget-put-history
 
 #---------------------------------------------------------------------------
 # 標準設定
@@ -51,3 +61,5 @@ alias df='df -h'
 
 # plugin
 [[ -f $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# vim: foldmethod=marker
