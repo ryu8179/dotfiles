@@ -9,6 +9,7 @@ compinit
 source ~/.zplug/init.zsh
 
 zplug "zplug/zplug"
+zplug "zsh-users/zsh-syntax-highlighting"
 zplug "mollifier/anyframe"
 # "mollifier/anyframe" (peco) 設定 {{{
 # コマンドライン履歴から選んで実行する
@@ -58,8 +59,5 @@ alias view='vim -R'
 alias cp='cp -i'
 alias du='du -h'
 alias df='df -h'
-
-# plugin
-[[ -f $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # vim: foldmethod=marker
