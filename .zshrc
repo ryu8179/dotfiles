@@ -1,7 +1,8 @@
-# The following lines were added by compinstall
+#---------------------------------------------------------------------------
+# autoload
+#---------------------------------------------------------------------------
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
 #---------------------------------------------------------------------------
 # zplug
@@ -10,13 +11,8 @@ source ~/.zplug/init.zsh
 
 zplug "zplug/zplug"
 zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-autosuggestions"
 zplug "mollifier/anyframe"
-# "mollifier/anyframe" (peco) 設定 {{{
-# コマンドライン履歴から選んで実行する
-alias ph='anyframe-widget-execute-history'
-# コマンドライン履歴から選んでコマンドラインに挿入する
-alias phh='anyframe-widget-put-history'
-# }}}
 
 # 未インストール項目をインストールする
 if ! zplug check --verbose; then
@@ -28,6 +24,22 @@ fi
 
 # コマンドをリンクして、PATH に追加し、プラグインは読み込む
 zplug load --verbose
+
+#---------------------------------------------------------------------------
+# zplug 各プラグインの設定
+#---------------------------------------------------------------------------
+
+# "zsh-users/zsh-autosuggestions" {{{
+# カラー変更
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
+# }}}
+
+# "mollifier/anyframe" (peco) 設定 {{{
+# コマンドライン履歴から選んで実行する
+alias ph='anyframe-widget-execute-history'
+# コマンドライン履歴から選んでコマンドラインに挿入する
+alias phh='anyframe-widget-put-history'
+# }}}
 
 #---------------------------------------------------------------------------
 # 標準設定
