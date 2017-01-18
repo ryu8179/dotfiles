@@ -64,8 +64,9 @@ setopt IGNORE_EOF
 setopt NO_FLOW_CONTROL
 setopt NO_BEEP
 
-alias ll='ls -lh'
-alias la='ls -alh'
+alias ls='ls -F --color=auto'
+alias ll='ls -lhF'
+alias la='ls -alhF'
 alias vi='vim'
 alias view='vim -R'
 alias cp='cp -i'
