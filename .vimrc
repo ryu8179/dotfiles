@@ -12,8 +12,7 @@ set encoding=utf-8
 autocmd MyAutoGrp BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} :set filetype=markdown
 " 2バイト半角対策 ■ 等で表示崩れ対策
 set ambiwidth=double
-set helplang=ja,en
-set number
+" マウスを無効化
 set mouse-=a
 " 検索結果をリアルタイムハイライト
 set incsearch
@@ -25,6 +24,9 @@ set wildmenu wildmode=list:full
 set backspace=indent,eol,start
 " CTRL-a, CTRL-x 使用時の認識設定
 set nrformats=alpha,hex 
+
+set helplang=ja,en
+set number
 
 " コーディング設定
 set tabstop=4
@@ -56,16 +58,15 @@ endif
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/')) " {{{
 
 " NeoBundle に NeoBundle 自身の管理をさせる
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" 私の設定はここから:
+" MySetting 
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-"NeoBundle 'Shougo/unite.vim' {{{
+NeoBundle 'Shougo/neomru.vim' " {{{
 " プレフィックスキー
 nnoremap [unite] <Nop>
 nmap    <Space>u [unite]
@@ -89,8 +90,7 @@ NeoBundle 'sjl/badwolf'
 NeoBundle 'itchyny/landscape.vim'
 NeoBundle 'gosukiwi/vim-atom-dark'
 
-NeoBundle 'kana/vim-submode'
-"NeoBundle 'kana/vim-submode' {{{
+NeoBundle 'kana/vim-submode' "{{{
 " 読み込み完了後に call する
 let s:bundle = neobundle#get("vim-submode")
 function! s:bundle.hooks.on_source(bundle)
@@ -106,21 +106,15 @@ function! s:bundle.hooks.on_source(bundle)
 endfunction
 "}}}
 
-NeoBundle 'vim-jp/vimdoc-ja'
-
-NeoBundle 'scrooloose/syntastic'
-
 NeoBundleFetch 'kurocode25/mdforvim'
-
+NeoBundle 'rbgrouleff/bclose.vim'
+NeoBundle 'vim-jp/vimdoc-ja'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'PDV--phpDocumentor-for-Vim'
-
-NeoBundle 'fatih/vim-go'
-"NeoBundle 'fatih/vim-go' {{{
+NeoBundle 'fatih/vim-go' "{{{
 autocmd MyAutoGrp FileType go :highlight goErr cterm=bold ctermfg=214
 autocmd MyAutoGrp FileType go :match goErr /\<err\>/
 " }}}
-
-NeoBundle 'rbgrouleff/bclose.vim'
 
 " Markdown用
 "NeoBundle 'plasticboy/vim-markdown'
@@ -132,7 +126,7 @@ let g:vim_markdown_folding_diabled = 1
 "}}}
 
 " Required:
-call neobundle#end()
+call neobundle#end() " }}}
 
 " Required:
 filetype plugin indent on
