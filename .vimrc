@@ -75,6 +75,20 @@ nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
 "}}}
 
+" :Unite colorscheme -auto-preview によって選択的にプレビュー出来る
+NeoBundle 'ujihisa/unite-colorscheme'
+
+" color scheme list
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'tomasr/molokai'                   " 中々良い
+NeoBundle 'croaker/mustang-vim'
+NeoBundle 'mrkn/mrkn256.vim'                 " 良い
+NeoBundle 'jpo/vim-railscasts-theme'         " 中々良い
+NeoBundle 'chriskempson/vim-tomorrow-theme'
+NeoBundle 'sjl/badwolf'
+NeoBundle 'itchyny/landscape.vim'
+NeoBundle 'gosukiwi/vim-atom-dark'
+
 NeoBundle 'kana/vim-submode'
 "NeoBundle 'kana/vim-submode' {{{
 " 読み込み完了後に call する
@@ -126,5 +140,10 @@ filetype plugin indent on
 " vim起動時に未インストールの bundle が無いかチェックし、
 " 有る場合はインストールを促す。
 NeoBundleCheck
+
+"---------------------------------------------------------------------------
+" 標準設定 (Plugin 読込み後)
+"---------------------------------------------------------------------------
+colorscheme mrkn256
 
 " vim: foldmethod=marker
