@@ -36,7 +36,6 @@ set autoindent
 set expandtab
 set smartindent
 set shiftwidth=4
-syntax on
 " タブの可視化
 set list
 set listchars=tab:>.
@@ -141,5 +140,6 @@ NeoBundleCheck
 " 標準設定 (Plugin 読込み後)
 "---------------------------------------------------------------------------
 colorscheme mrkn256
+syntax on
 
 " vim: foldmethod=marker

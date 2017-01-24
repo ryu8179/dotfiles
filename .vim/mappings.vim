@@ -5,6 +5,11 @@
 "---------------------------------------------------------------------------
 " ノーマルモード
 "---------------------------------------------------------------------------
+nnoremap <C-c><C-c> <C-c>
+nnoremap <C-c>e :edit $HOME/.vimrc<CR>
+nnoremap <C-c>r :source $HOME/.vimrc<CR>
+nnoremap <Space>w :w<CR>
+nnoremap <F2> :noh<CR>
 
 " Window 操作. 参考 http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
 nnoremap s <Nop>
@@ -26,17 +31,18 @@ nnoremap sH <C-w>H
 nnoremap <C-j> <C-e>
 nnoremap <C-k> <C-y>
 
+" 検索時 ハイライト箇所を画面中央に持ってくる
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+
 " 行頭、行末移動
 nnoremap <Space>h ^
 nnoremap <Space>l $
 
 " 空行挿入
 nnoremap <Space>j o<ESC>
-
-" 保存
-nnoremap <Space>w :w<CR>
-
-nnoremap <F2> :noh<CR>
 
 
 "---------------------------------------------------------------------------
