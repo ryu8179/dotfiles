@@ -2,14 +2,16 @@
 " 標準設定
 "---------------------------------------------------------------------------
 
-" 参考: https://github.com/vim-jp/reading-vimrc/wiki
+" autocmd 用Myグループの作成 (名前空間的な認識)
+" 参考: https://github.com/vim-jp/reading-vimrc/wiki , :h autocmd
 augroup MyAutoGrp
+  " 「全ての」MyAutoGrp の自動コマンドを削除する
   autocmd!
 augroup END
+" *.md ファイル等は filetype=modula2 と判断してしまうので markdown に設定
+autocmd MyAutoGrp BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} :set filetype=markdown
 
 set encoding=utf-8
-" *.md ファイルは modula2 ファイルと判断してしまうので、 markdown に設定
-autocmd MyAutoGrp BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} :set filetype=markdown
 " 2バイト半角対策 ■ 等で表示崩れ対策
 set ambiwidth=double
 " マウスを無効化
@@ -22,7 +24,7 @@ set hlsearch
 set wildmenu wildmode=list:full
 " Insert時に、バックスペースを使用する
 set backspace=indent,eol,start
-" CTRL-a, CTRL-x 使用時の認識設定
+" <C-a>, <C-x> の挙動設定
 set nrformats=alpha,hex 
 
 set helplang=ja,en
@@ -69,17 +71,17 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim' " {{{
 " プレフィックスキー
 nnoremap [unite] <Nop>
-nmap    <Space>u [unite]
+nmap     <Space>u [unite]
 " キーマップ
-nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
-nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
-nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
+nnoremap [unite]f :<C-u>Unite<Space>file<CR>
+nnoremap [unite]b :<C-u>Unite<Space>buffer<CR>
+nnoremap [unite]m :<C-u>Unite<Space>file_mru<CR>
 "}}}
 
 " :Unite colorscheme -auto-preview によって選択的にプレビュー出来る
 NeoBundle 'ujihisa/unite-colorscheme'
 
-" color scheme list
+" カラースキーマ一覧
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'tomasr/molokai'                   " 中々良い
 NeoBundle 'croaker/mustang-vim'
@@ -106,7 +108,6 @@ function! s:bundle.hooks.on_source(bundle)
 endfunction
 "}}}
 
-NeoBundleFetch 'kurocode25/mdforvim'
 NeoBundle 'rbgrouleff/bclose.vim'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'scrooloose/syntastic'
@@ -118,6 +119,7 @@ autocmd MyAutoGrp FileType go :match goErr /\<err\>/
 
 " Markdown用
 "NeoBundle 'plasticboy/vim-markdown'
+NeoBundleFetch 'kurocode25/mdforvim'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'rcmdnk/vim-markdown'
