@@ -14,21 +14,21 @@ autocmd MyAutoGrp BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} :set filetype=ma
 set encoding=utf-8
 " 2バイト半角対策 ■ 等で表示崩れ対策
 set ambiwidth=double
+
 " マウスを無効化
 set mouse-=a
-" 検索結果をリアルタイムハイライト
-set incsearch
-" 検索結果のハイライト
-set hlsearch
 " vimからファイルを開くときにリスト表示
 set wildmenu wildmode=list:full
 " Insert時に、バックスペースを使用する
 set backspace=indent,eol,start
 " <C-a>, <C-x> の挙動設定
-set nrformats=alpha,hex 
+set nrformats=hex
 
 set helplang=ja,en
 set number
+set breakindent
+set incsearch
+set hlsearch
 
 " コーディング設定
 set tabstop=4
@@ -91,6 +91,7 @@ NeoBundle 'sjl/badwolf'
 NeoBundle 'itchyny/landscape.vim'
 NeoBundle 'gosukiwi/vim-atom-dark'
 
+" Window サイズ変更を便利に
 NeoBundle 'kana/vim-submode' "{{{
 " 読み込み完了後に call する
 let s:bundle = neobundle#get("vim-submode")
@@ -110,6 +111,8 @@ endfunction
 NeoBundle 'rbgrouleff/bclose.vim'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-commentary'
+
 NeoBundle 'PDV--phpDocumentor-for-Vim'
 NeoBundle 'fatih/vim-go' "{{{
 autocmd MyAutoGrp FileType go :highlight goErr cterm=bold ctermfg=214
