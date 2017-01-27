@@ -15,6 +15,11 @@ set encoding=utf-8
 " 2バイト半角対策 ■ 等で表示崩れ対策
 set ambiwidth=double
 
+" ファイルエンコーディング, 文字コードをステータス行に表示
+" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-japanese#TOC--6
+set laststatus=2
+set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=\ (%v,%l)/%L%8P
+
 " マウスを無効化
 set mouse-=a
 " vimからファイルを開くときにリスト表示
@@ -36,9 +41,8 @@ set autoindent
 set expandtab
 set smartindent
 set shiftwidth=4
-" タブの可視化
-set list
-set listchars=tab:>.
+" タブ, 行末スペースの可視化
+set list listchars=tab:>.,trail:_
 
 " 各機能の設定ファイル読み込み
 source ~/.vim/abbreviate.vim

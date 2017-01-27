@@ -45,8 +45,10 @@ nnoremap # #zz
 nnoremap <Space>h ^
 nnoremap <Space>l $
 
-" 空行挿入
+" 空行・空白挿入
 nnoremap <Space>j o<ESC>
+nnoremap <Space>k O<ESC>
+nnoremap <Space><Space> i<Space><ESC>
 
 
 "---------------------------------------------------------------------------
