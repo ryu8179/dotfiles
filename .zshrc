@@ -9,14 +9,14 @@ compinit
 #---------------------------------------------------------------------------
 source ~/.zplug/init.zsh
 
-zplug "zplug/zplug"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "mollifier/anyframe"
+zplug 'zplug/zplug'
+zplug 'zsh-users/zsh-syntax-highlighting'
+zplug 'zsh-users/zsh-autosuggestions'
+zplug 'mollifier/anyframe'
 
 # 未インストール項目をインストールする
 if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
+    printf 'Install? [y/N]: '
     if read -q; then
         echo; zplug install
     fi
@@ -29,12 +29,12 @@ zplug load --verbose
 # zplug 各プラグインの設定
 #---------------------------------------------------------------------------
 
-# "zsh-users/zsh-autosuggestions" {{{
+# 'zsh-users/zsh-autosuggestions' {{{
 # カラー変更
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
 # }}}
 
-# "mollifier/anyframe" (peco) 設定 {{{
+# 'mollifier/anyframe' (peco) 設定 {{{
 # コマンドライン履歴から選んで実行する
 alias ph='anyframe-widget-execute-history'
 # コマンドライン履歴から選んでコマンドラインに挿入する
@@ -44,8 +44,8 @@ alias phh='anyframe-widget-put-history'
 #---------------------------------------------------------------------------
 # 標準設定
 #---------------------------------------------------------------------------
-PROMPT="[%n@%m](%*%) %~ %# "
-#RPROMPT="(%*%)"
+PROMPT='[%n@%m](%*%) %~ %# '
+#RPROMPT='(%*%)'
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
@@ -73,6 +73,6 @@ alias cp='cp -i'
 alias du='du -h'
 alias df='df -h'
 # .tmux.conf で `default-teminal` 設定を行っても Vim カラースキーマが動作がしなかった為
-alias tmux="TERM=screen-256color tmux"
+alias tmux='TERM=screen-256color tmux'
 
 # vim: foldmethod=marker
