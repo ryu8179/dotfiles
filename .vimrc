@@ -53,6 +53,9 @@ source ~/.vim/mappings.vim
 "---------------------------------------------------------------------------
 if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+  " dein.nvim 用 python3 へのパス追加
+  let g:python3_host_prog = expand('~/.pyenv/shims/python')
 endif
 
 "---------------------------------------------------------------------------
@@ -65,24 +68,30 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/')) " {{{
 
-" NeoBundle に NeoBundle 自身の管理をさせる
-" Required:
+" Required: NeoBundle に NeoBundle 自身の管理をさせる
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" MySetting 
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim' " {{{
-" プレフィックスキー
-nnoremap [unite] <Nop>
-nmap     <Space>u [unite]
-" キーマップ
-nnoremap [unite]f :<C-u>Unite<Space>file<CR>
-nnoremap [unite]b :<C-u>Unite<Space>buffer<CR>
-nnoremap [unite]m :<C-u>Unite<Space>file_mru<CR>
-"}}}
+" 'denite.nvim' {{{
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/denite.nvim'
+" 読み込み完了後に call する
+let s:denite = neobundle#get("denite.nvim")
+function! s:denite.hooks.on_source(denite)
+    " key mapping
+    nnoremap [denite] <Nop>
+    nmap     <Space>u [denite]
+    nnoremap [denite]f :<C-u>Denite<Space>file_rec<CR>
+    nnoremap [denite]b :<C-u>Denite<Space>buffer<CR>
+    nnoremap [denite]m :<C-u>Denite<Space>file_mru<CR>
 
-" :Unite colorscheme -auto-preview によって選択的にプレビュー出来る
-NeoBundle 'ujihisa/unite-colorscheme'
+    call denite#custom#map('insert', '<C-a>', '<Home>')
+    call denite#custom#map('insert', '<C-e>', '<End>')
+    call denite#custom#map('insert', '<C-f>', '<Right>')
+    call denite#custom#map('insert', '<C-b>', '<Left>')
+    call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+    call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+endfunction
+" }}}
 
 " カラースキーマ一覧
 NeoBundle 'nanotech/jellybeans.vim'
