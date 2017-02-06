@@ -54,6 +54,7 @@ SAVEHIST=1000000
 export WORDCHARS='*?_.[]~-=&;!#$%^(){}<>' 
 # 補完時にメニュー選択モードを利用する
 zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # 大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
