@@ -11,15 +11,15 @@ augroup END
 " *.md ファイル等は filetype=modula2 と判断してしまうので markdown に設定
 autocmd MyAutoGrp BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} :set filetype=markdown
 
+" 文字コード・文字表示周り
 set encoding=utf-8
 " 2バイト半角対策 ■ 等で表示崩れ対策
 set ambiwidth=double
 
-" ファイルエンコーディング, 文字コードをステータス行に表示
-" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-japanese#TOC--6
-set laststatus=2
-set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=\ (%v,%l)/%L%8P
-
+"
+set helplang=ja,en
+set number
+set breakindent
 " マウスを無効化
 set mouse-=a
 " vimからファイルを開くときにリスト表示
@@ -29,11 +29,17 @@ set backspace=indent,eol,start
 " <C-a>, <C-x> の挙動設定
 set nrformats=hex
 
-set helplang=ja,en
-set number
-set breakindent
+" 検索
+set ignorecase
+set smartcase
 set incsearch
 set hlsearch
+
+" ステータス行
+" ファイルエンコーディング, 文字コードを表示
+" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-japanese#TOC--6
+set laststatus=2
+set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=\ (%v,%l)/%L%8P
 
 " コーディング設定
 set tabstop=4
@@ -73,6 +79,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " 'denite.nvim' {{{
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/neoyank.vim'
 NeoBundle 'Shougo/denite.nvim'
 " 読み込み完了後に call する
 let s:denite = neobundle#get("denite.nvim")
@@ -83,6 +90,7 @@ function! s:denite.hooks.on_source(denite)
     nnoremap [denite]f :<C-u>Denite<Space>file_rec<CR>
     nnoremap [denite]b :<C-u>Denite<Space>buffer<CR>
     nnoremap [denite]m :<C-u>Denite<Space>file_mru<CR>
+    nnoremap [denite]p :<C-u>Denite<Space>neoyank<CR>
 
     call denite#custom#map('insert', '<C-a>', '<Home>')
     call denite#custom#map('insert', '<C-e>', '<End>')
