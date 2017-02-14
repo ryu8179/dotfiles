@@ -74,6 +74,6 @@ alias cp='cp -i'
 alias du='du -h'
 alias df='df -h'
 # .tmux.conf で `default-teminal` 設定を行っても Vim カラースキーマが動作がしなかった為
-alias tmux='TERM=screen-256color tmux'
+alias tmux='TERM=xterm-256color tmux'
 
 # vim: foldmethod=marker

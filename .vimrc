@@ -19,6 +19,7 @@ set ambiwidth=double
 "
 set helplang=ja,en
 set number
+set history=200
 set breakindent
 " マウスを無効化
 set mouse-=a
