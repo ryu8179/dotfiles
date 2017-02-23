@@ -92,6 +92,7 @@ function! s:denite.hooks.on_source(denite)
     nnoremap [denite]b :<C-u>Denite<Space>buffer<CR>
     nnoremap [denite]m :<C-u>Denite<Space>file_mru<CR>
     nnoremap [denite]p :<C-u>Denite<Space>neoyank<CR>
+    nnoremap [denite]g :<C-u>Denite<Space>grep<CR>
 
     call denite#custom#map('insert', '<C-a>', '<Home>')
     call denite#custom#map('insert', '<C-e>', '<End>')
