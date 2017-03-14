@@ -14,6 +14,12 @@ nnoremap <C-c>r :source $HOME/.vimrc<CR>
 nnoremap <Space>w :w<CR>
 nnoremap <F2> :noh<CR>
 
+" バッファ移動
+nnoremap [b :bprevious<CR>
+nnoremap ]b :bnext<CR>
+nnoremap [B :bfirst<CR>
+nnoremap ]B :blast<CR>
+
 " Window 操作. 参考 http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
 nnoremap s <Nop>
 nnoremap ss <C-w>s
