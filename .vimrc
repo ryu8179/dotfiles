@@ -145,7 +145,8 @@ autocmd MyAutoGrp FileType go :match goErr /\<err\>/
 " Markdown用
 "NeoBundle 'plasticboy/vim-markdown'
 NeoBundleFetch 'kurocode25/mdforvim'
-NeoBundle 'kannokanno/previm'
+"NeoBundle 'kannokanno/previm'
+NeoBundle 'kazuph/previm', 'feature/add-plantuml-plugin'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'rcmdnk/vim-markdown'
 " rcmdnk/vim-markdown {{{

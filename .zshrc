@@ -75,5 +75,6 @@ alias du='du -h'
 alias df='df -h'
 # .tmux.conf で `default-teminal` 設定を行っても Vim カラースキーマが動作がしなかった為
 alias tmux='TERM=xterm-256color tmux'
+alias pgitset='git config user.name "Ryugo Abe" && git config user.email "abe.ryugo@gmail.com"'
 
 # vim: foldmethod=marker
