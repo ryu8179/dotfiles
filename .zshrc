@@ -7,7 +7,8 @@ compinit
 #---------------------------------------------------------------------------
 # zplug
 #---------------------------------------------------------------------------
-source ~/.zplug/init.zsh
+export ZPLUG_HOME=/opt/homebrew/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
 zplug 'zplug/zplug'
 zplug 'zsh-users/zsh-syntax-highlighting'
@@ -65,7 +66,7 @@ setopt IGNORE_EOF
 setopt NO_FLOW_CONTROL
 setopt NO_BEEP
 
-alias ls='ls -F --color=auto'
+alias ls='ls -FG'
 alias ll='ls -lhF'
 alias la='ls -alhF'
 alias vi='vim'
