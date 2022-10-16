@@ -16,3 +16,6 @@
     diffs = diff --staged
     lola = log --graph --pretty=format:'%Cred%h%Creset - %s%C(yellow)%d%Creset %Cgreen(%cr:%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -15
     st = status
+[user]
+	name = Ryugo Abe
+	email = abe.ryugo@gmail.com
